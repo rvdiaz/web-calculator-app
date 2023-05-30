@@ -20,17 +20,16 @@ export const Buttons = (props) => {
     switch (value) {
       case 'AC':
         dispatch(calculatorActions.resetCalculator());
-        break;
-    
+        break; 
       default:
         break;
     }
   }
-
+  
   const handleClick=()=>{
     switch (type) {
       case 'basic':
-        console.log('sd');
+        dispatch(calculatorActions.addingOperation(value));
         break;
       case 'medium':  
         mediumHandler();
