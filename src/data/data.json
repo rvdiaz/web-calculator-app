@@ -6,40 +6,6 @@
         "dark":"#000",
         "light":"#fff"
     },
-    "basicOperations":[
-        {
-            "uiValue":"÷",
-            "operation":"/"
-        },
-        {
-            "uiValue":"x",
-            "operation":"*"
-        },
-        {
-            "uiValue":"-",
-            "operation":"-"
-        },
-        {
-            "uiValue":"+",
-            "operation":"+"
-        },
-        {
-            "uiValue":"=",
-            "operation":"="
-        }
-    ],
-    "mediumOperations":[
-        {
-            "uiValue":"AC",
-            "operation":"reset"
-        },
-        {
-            "uiValue":"+/-",
-            "operation":"opposite"
-        },
-        {
-            "uiValue":"%",
-            "operation":"percent"
-        }
-    ]
+    "basicOperations":["÷","x","-","+","="],
+    "mediumOperations":["AC","+/-","%"]
 }

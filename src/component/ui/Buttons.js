@@ -1,6 +1,8 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-
+import { calculatorActions } from '../../slices/calculatorSlice';
+import data from '../../data/data.json';
 
 const ButtonCalculator = styled.button`
     font-size:1.6rem;
@@ -11,7 +13,34 @@ const ButtonCalculator = styled.button`
   `;
 export const Buttons = (props) => {
   const {value,type,color,background,area}=props;
+  const {theme,mediumOperations,basicOperations}=data;
+  const dispatch=useDispatch();
   
+  const mediumHandler=()=>{
+    switch (value) {
+      case 'AC':
+        dispatch(calculatorActions.resetCalculator());
+        break;
+    
+      default:
+        break;
+    }
+  }
+
+  const handleClick=()=>{
+    switch (type) {
+      case 'basic':
+        console.log('sd');
+        break;
+      case 'medium':  
+        mediumHandler();
+        break;
+      default:
+        dispatch(calculatorActions.numberSelections(value));
+        break;
+    }
+  }
+
   return (
     <>
     <ButtonCalculator 
@@ -19,6 +48,7 @@ export const Buttons = (props) => {
       color={color} 
       background={background}
       type={type}
+      onClick={handleClick}
       >
         {value}
     </ButtonCalculator>

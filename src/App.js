@@ -16,7 +16,7 @@ function App() {
         {basicOperations.map((button,index)=>(
           <Buttons
             key={index}
-            value={button.uiValue}
+            value={button}
             background={basicOperationsColor}
             color={light}
             type='basic'
@@ -26,7 +26,7 @@ function App() {
          {mediumOperations.map((button,index)=>(
           <Buttons
             key={index}
-            value={button.uiValue}
+            value={button}
             background={buttonsColor}
             color={dark}
             type='medium'
