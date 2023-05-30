@@ -21,7 +21,9 @@ export const Buttons = (props) => {
       case 'AC':
         dispatch(calculatorActions.resetCalculator());
         break;
-    
+      case '+/-':
+        dispatch(calculatorActions.oppositeCalculator());
+        break;
       default:
         break;
     }

@@ -22,6 +22,12 @@ const calculatorSlice=createSlice({
                 else
                     state.result=state.result+''+newValue.payload;
             }
+        },
+        oppositeCalculator(state){
+            const resAux=parseFloat(state.result);
+            if(state.result!='0'){
+                state.result='' + -resAux;
+            }
         }
     }
 })
