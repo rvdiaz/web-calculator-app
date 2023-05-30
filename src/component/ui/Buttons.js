@@ -25,6 +25,7 @@ export const Buttons = (props) => {
         dispatch(calculatorActions.oppositeCalculator());
         break;
       default:
+        dispatch(calculatorActions.percentCalculator());
         break;
     }
   }

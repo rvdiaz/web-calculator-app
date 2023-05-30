@@ -28,6 +28,12 @@ const calculatorSlice=createSlice({
             if(state.result!='0'){
                 state.result='' + -resAux;
             }
+        },
+        percentCalculator(state){
+            const resAux=parseFloat(state.result);
+            if(state.result!='0'){
+                state.result='' + resAux/100;
+            } 
         }
     }
 })
