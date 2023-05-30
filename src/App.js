@@ -40,7 +40,7 @@ function App() {
             value={num}
             background={buttonsColor}
             color={dark}
-            type='medium'
+            type='number'
             area={(num==0 ? 'auto / auto / auto / span 2' : 'auto')}
           />
           ))

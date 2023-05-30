@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 const WrapperSpan=styled.div`
@@ -15,12 +16,13 @@ const ResultText=styled.div`
 `
 
 export const Result = (props) => {
+  const result=useSelector(state=>state.calculator.result);
   return (
     <WrapperSpan>
         <ResultText
         color={props.color}
         >
-            0
+            {result}
         </ResultText>
     </WrapperSpan>
   )

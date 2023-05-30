@@ -18,6 +18,7 @@ export const Buttons = (props) => {
       area={area} 
       color={color} 
       background={background}
+      type={type}
       >
         {value}
     </ButtonCalculator>
