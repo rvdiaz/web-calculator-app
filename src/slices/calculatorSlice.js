@@ -22,7 +22,28 @@ const calculatorSlice=createSlice({
                     state.result=newValue.payload;
                 else
                     state.result=state.result+''+newValue.payload;
+            }else {
+                if(state.secondOperator==''){
+                    state.result=newValue.payload;
+                    state.secondOperator=parseFloat(state.result);
+                }
+                else{
+                    state.result=state.result+''+newValue.payload;
+                    state.secondOperator=parseFloat(state.result);
+                }
             }
+        },
+        oppositeCalculator(state){
+            const resAux=parseFloat(state.result);
+            if(state.result!='0'){
+                state.result='' + -resAux;
+            }
+        },
+        percentCalculator(state,newValue){
+            const resAux=parseFloat(state.result);
+            if(state.result!='0'){
+                state.result='' + resAux/100;
+            } 
             else{
                 if(state.secondOperator==''){
                     state.result=newValue.payload;
