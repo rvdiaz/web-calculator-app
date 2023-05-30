@@ -13,7 +13,6 @@ const ButtonCalculator = styled.button`
   `;
 export const Buttons = (props) => {
   const {value,type,color,background,area}=props;
-  const {theme,mediumOperations,basicOperations}=data;
   const dispatch=useDispatch();
   
   const mediumHandler=()=>{
@@ -29,11 +28,11 @@ export const Buttons = (props) => {
         break;
     }
   }
-
+  
   const handleClick=()=>{
     switch (type) {
       case 'basic':
-        console.log('sd');
+        dispatch(calculatorActions.addingOperation(value));
         break;
       case 'medium':  
         mediumHandler();

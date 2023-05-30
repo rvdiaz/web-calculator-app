@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getResult } from "../helpers/getResult";
 
 const calculatorSlice=createSlice({
     name:'calculator',
@@ -22,18 +23,30 @@ const calculatorSlice=createSlice({
                 else
                     state.result=state.result+''+newValue.payload;
             }
-        },
-        oppositeCalculator(state){
-            const resAux=parseFloat(state.result);
-            if(state.result!='0'){
-                state.result='' + -resAux;
+            else{
+                if(state.secondOperator==''){
+                    state.result=newValue.payload;
+                    state.secondOperator=parseFloat(state.result);
+                }
+                else{
+                    state.result=state.result+''+newValue.payload;
+                    state.secondOperator=parseFloat(state.result);
+                }
+                    
             }
         },
-        percentCalculator(state){
-            const resAux=parseFloat(state.result);
-            if(state.result!='0'){
-                state.result='' + resAux/100;
-            } 
+        addingOperation(state,operation){
+            if(operation.payload!='='){
+                if(state.secondOperator==''){
+                    state.operation=operation.payload;
+                    state.firstOperator=parseFloat(state.result);
+            }
+            }else{
+                state.result=getResult(state.firstOperator,state.secondOperator,state.operation);
+                state.firstOperator='';
+                state.secondOperator='';
+                state.operation='';
+            }
         }
     }
 })
